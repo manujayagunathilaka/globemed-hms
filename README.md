@@ -232,7 +232,7 @@ To get a local copy up and running, follow these steps:
      ```
    - (Optional) Import the seed script to load test accounts and sample schedules:
      ```sh
-     mysql -u your_username -p < database/seed.sql
+     mysql -u your_username -p < database/seed-demo-data.sql
      ```
    - *Note:* If the database is completely empty on startup, the application's built-in `DatabaseSeeder` will automatically seed the initial master data as well.
 
@@ -258,7 +258,7 @@ globemed-hms/
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── database/                 # SQL database reference files
 │   ├── schema.sql            # Database schema definition
-│   └── seed.sql              # Database seed inserts
+│   └── seed-demo-data.sql    # Database seed inserts
 ├── docs/                     # Media assets and diagrams
 ├── src/
 │   ├── main/
