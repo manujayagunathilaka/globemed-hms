@@ -66,21 +66,15 @@ public class EnvLoader {
         String dbPassword = get("DB_PASSWORD");
 
         if (dbUrl == null || dbUser == null || dbPassword == null) {
-            StringBuilder missing = new StringBuilder();
-            if (dbUrl == null) missing.append("  - DB_URL\n");
-            if (dbUser == null) missing.append("  - DB_USER\n");
-            if (dbPassword == null) missing.append("  - DB_PASSWORD\n");
-
             String errorMessage = "\n========================================================================\n" +
-                    "  [ERROR] MISSING DATABASE CONFIGURATION ENVIRONMENT VARIABLES\n" +
+                    "  [ERROR] MISSING DATABASE CONFIGURATION\n" +
                     "========================================================================\n" +
-                    "The following required configuration values are missing:\n" +
-                    missing.toString() +
-                    "Please make sure you have created a '.env' file in the root of your project\n" +
-                    "and filled in the details. You can use '.env.example' as a template.\n" +
+                    "Missing database configuration. Please create a .env file using .env.example\n" +
+                    "and place it in the same folder as the application, or configure DB_URL,\n" +
+                    "DB_USER, and DB_PASSWORD as system environment variables.\n" +
                     "========================================================================\n";
             System.err.println(errorMessage);
-            throw new IllegalStateException("Database configuration variables are missing. Please setup your .env file.");
+            throw new IllegalStateException("Missing database configuration. Please create a .env file using .env.example and place it in the same folder as the application, or configure DB_URL, DB_USER, and DB_PASSWORD as system environment variables.");
         }
     }
 }
